@@ -1,11 +1,35 @@
-<h2>Mis Notas</h2>
-<form method="post">
-  <input type="text" name="nota" placeholder="Escribe tu nota aquí">
-  <input type="submit" value="Guardar">
-</form>
-<ul>
-  {% for nota in notas %}
-    <li>{{ nota[0] }}</li>
-  {% endfor %}
-</ul>
-<a href="/logout">Cerrar sesión</a>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notas</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo.css') }}" />
+</head>
+
+<body>
+  <section>
+    <div class="login-box">
+      <h2>Mis Notas</h2>
+      <form method="post">
+        <div class="input-box">
+          <input type="text" name="nota" id="nota" required />
+          <label for="nota">Escribe tu nota aquí</label>
+        </div>
+        <button type="submit">Guardar</button>
+
+        <ul>
+          {% for nota in notas %}
+          <li>{{ nota[0] }}</li>
+          {% endfor %}
+        </ul>
+        <a href="/logout" class="register-link">Cerrar sesión</a>
+    </div>
+    </form>
+  </section>
+  <script src="js/script.js"></script>
+</body>
+
+</html>
