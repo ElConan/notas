@@ -1,0 +1,11 @@
+<h2>Mis Notas</h2>
+<form method="post">
+  <input type="text" name="nota" placeholder="Escribe tu nota aquí">
+  <input type="submit" value="Guardar">
+</form>
+<ul>
+  {% for nota in notas %}
+    <li>{{ nota[0] }}</li>
+  {% endfor %}
+</ul>
+<a href="/logout">Cerrar sesión</a>

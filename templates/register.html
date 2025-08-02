@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/registro.css') }}">
+</head>
+
+<body>
+    <section>
+        <div class="register-box">
+            <h2>Registro</h2>
+            <form method="post"> 
+                
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                    <input type="text" name="email" required>
+                    <label>Correo Electrónico</label>
+                </div>
+            
+                <div class="input-box">
+                    <div class="input-container">
+                        <span class="icon toggle-password" toggle="#password">
+                            <ion-icon name="lock-closed"></ion-icon>
+                        </span>
+                        <input id="password" type="password" name="password" required placeholder=" ">
+                        <label for="password">Contraseña</label>
+                    </div>
+                </div>
+                
+                <button type="submit" value="Registrarse">Register</button>
+                <div class="register-link">
+                    <p>
+                        Ya tienes una cuenta?
+                        <a href="/login">Iniciar sesión</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+        
+    </section>
+    <script src="js/script.js"></script>
+
+    <script>
+        document.querySelectorAll('.toggle-password').forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const input = document.querySelector(toggle.getAttribute('toggle'));
+                const icon = toggle.querySelector('ion-icon');
+    
+                if (input.type === "password") {
+                    input.type = "text";
+                    icon.setAttribute('name', 'lock-open');
+                } else {
+                    input.type = "password";
+                    icon.setAttribute('name', 'lock-closed');
+                }
+            });
+        });
+    </script>
+    
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
